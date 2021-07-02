@@ -4,6 +4,7 @@ const input = document.querySelector("#file");
 const form = document.querySelector("#form");
 const output = document.querySelector("#output");
 const message = document.querySelector("#message");
+const yourKey = "VLg6XsJZHRWHnn1y";
 
 customText.addEventListener("click", ()=>{
   input.click()
@@ -39,7 +40,7 @@ form.addEventListener("submit", (event) => {
     try {
       const data = await (
         await fetch(
-          `https://api.textgears.com/spelling?text=${result}&language=en-GB&whitelist=&dictionary_id=&key=VLg6XsJZHRWHnn1y`
+          `https://api.textgears.com/spelling?text=${result}&language=en-GB&whitelist=&dictionary_id=&key=${yourKey}`
         )
       ).json();
       const errors = data.response.errors;
@@ -69,7 +70,6 @@ form.addEventListener("submit", (event) => {
 
           spanSuggestionBox.addEventListener("mouseleave", (event)=>{
             spanSuggestionBox.style.display = "none"
-            // spanSuggestionBox.classList.remove("suggestions")
           })
 
           
